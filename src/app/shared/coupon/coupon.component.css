@@ -1,0 +1,13 @@
+.abc{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+img{
+    border-radius: 16px;
+    height: 240px;
+    width: 800px;
+}
