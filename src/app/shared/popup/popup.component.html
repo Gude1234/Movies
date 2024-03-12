@@ -1,0 +1,15 @@
+<div class="backdrop"></div>
+<div class="box">
+    <div class="popup">
+        <div class="pqr">
+            <p>{{movie1['name']}}</p>
+            <p style="font-size: 18px;font-weight: bold;">Select language</p>
+            <hr style="margin-top: 0px;">
+        </div>
+        <div class="lang">
+            <div *ngFor="let language2 of languages1;let i = index">
+                <button class="xyz" (click)="onSelect(language2)">{{language2}}</button>
+            </div>
+        </div>
+    </div>
+</div>

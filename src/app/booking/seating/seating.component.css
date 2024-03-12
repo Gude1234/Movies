@@ -1,0 +1,72 @@
+.row{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.col-sm-1{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+.seating{
+    display: flex;
+    justify-content: center;
+}
+
+.seatstatus{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+}
+
+.totalSeating{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.rowSeating{
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+}
+
+.list-group-item{
+    background-color: white;
+    color:  rgb(73, 186, 142, 1);
+    border-color: rgb(73, 186, 142, 1);
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.list-group-item:hover{
+    background-color:  rgb(12, 139, 37);
+    border-color: rgb(12, 139, 37);
+    color: white;
+}
+
+button{
+    width: 350px;
+    height: 40px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #f84464;
+    color: white;
+}
+
+.action{
+    background: #fff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+}

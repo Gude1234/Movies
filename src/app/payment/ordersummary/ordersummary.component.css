@@ -1,0 +1,14 @@
+.list-group-item{
+    width: 425px;
+    padding:20px
+}
+
+.selected{
+    display: flex;
+    flex-direction: row;
+}
+
+.data{
+    display: flex;
+    flex-direction: row;
+}

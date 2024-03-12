@@ -9,6 +9,14 @@ import { MoviesListComponent } from './movies/movies-list/movies-list.component'
 import { AppRoutingModule } from './app-routing.module';
 import { CouponComponent } from './shared/coupon/coupon.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { BookingComponent } from './booking/booking.component';
+import { TheatredetailsComponent } from './booking/theatredetails/theatredetails.component';
+import { SeatingComponent } from './booking/seating/seating.component';
+import { BookingConfirmationComponent } from './booking-confirmation/booking-confirmation.component';
+import { PaymentComponent } from './payment/payment.component';
+import { FormsModule } from '@angular/forms';
+import { OrdersummaryComponent } from './payment/ordersummary/ordersummary.component';
+import { PopupComponent } from './shared/popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +25,20 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     MoviesComponent,
     MoviesListComponent,
     CouponComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    BookingComponent,
+    TheatredetailsComponent,
+    SeatingComponent,
+    BookingConfirmationComponent,
+    PaymentComponent,
+    OrdersummaryComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

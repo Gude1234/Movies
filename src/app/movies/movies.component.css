@@ -1,5 +1,11 @@
 .xyz{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); 
+    display: flex;
+    flex-direction: row;
     gap: 30px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+.xyz::-webkit-scrollbar {
+    display: none;
 }

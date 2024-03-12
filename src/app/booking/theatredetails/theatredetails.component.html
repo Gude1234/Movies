@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="col-sm-3">
+            <p style="font-size: 15px;font-weight: bold;">{{theatre['name']}}</p>
+            <div class="perks">
+                <p style="color: rgb(73, 186, 142, 1);" *ngIf="theatre['eticket'] =='Available'"><i class="bi bi-phone"></i>&nbsp; M-Ticket</p>
+                <p style="color: rgb(251, 168, 13);" *ngIf="theatre['food'] =='Available'"><img src="https://www.shutterstock.com/image-vector/hamburger-soft-drink-cup-fast-260nw-1303381129.jpg" style="height: 30px;">&nbsp; Food and Beverage</p>
+            </div>        
+        </div>
+        <div class="col-sm-9">
+            <div class="time1">
+                <div *ngFor="let time of theatre['timings'];let i = index">
+                    <a class="list-group-item" style="cursor: pointer;" (click)="onSeating(i)">
+                        <p style="color: rgb(73, 186, 142, 1);">{{time}}</p>                    
+                    </a>  
+                </div>
+            </div>
+            &nbsp;              
+            <p style="color: rgb(251, 168, 13);" *ngIf="theatre['cancellation'] =='Available'"><i class="bi bi-dot" style="color: orange;"></i>&nbsp;Cancellation Available</p>
+            <p style="color: rgb(251, 168, 13);" *ngIf="theatre['cancellation'] =='Not Available'"><i class="bi bi-dot" style="color: orange;"></i>&nbsp;Non-cancellable</p>
+        </div>
+    </div>    
+</div>
+<hr>

@@ -1,7 +1,10 @@
-<a >
+<a style="cursor: pointer;"
+   [routerLink]="[Index]"
+   routerLinkActive="active"
+>
     <div class="card">
         <img src="{{ movie['imageUrl']}}" class="card-img-top">
-        <br>
+        &nbsp;
         <div class="card-body">
             <p class="card-text" style="font-weight: bold;color: black;font-size: medium;">{{ movie['name']}}</p>
             <p class="card-text" style="color: black;">{{ movie['category']}}</p>

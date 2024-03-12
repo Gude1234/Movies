@@ -6,10 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class MovieListService {
 
+  movie:any
+  languageselected:string
+
   constructor(private http: HttpClient) { }
 
   GetMovies(){
     return this.http.get('http://localhost:5258/api/MovieDetails')
+  }
+
+  GetMovieById(id:number){
+    return this.http.get(`http://localhost:5258/api/MovieDetails/${id}`)
   }
   
 }

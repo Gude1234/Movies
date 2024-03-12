@@ -1,0 +1,48 @@
+<div class="confirmation">
+    <div class="confirm">
+        <div class="list-group-item">
+            <p style="font-size: 25px;color: #c02c39;">Booking Summary</p>
+            <p style="font-size: 18px;">{{movie['name']}}</p>
+            <p style="font-size: 14px;font-weight: bold;">{{theatre['name']}} | {{time}}</p>
+            <div class="selected" style="font-size: 15px;">
+                <p>Seats -</p>&nbsp;
+                <p *ngFor="let seat of seats;let last = last">{{seat['row']}}{{seat['seatNumber']}}{{ !last ? ', ' : '' }}</p>
+                &nbsp;
+                <p>({{seats.length}}&nbsp;Tickets)</p>
+                <p style="margin-left: auto;">Rs.{{price}}</p>
+            </div>
+            <div class="Convenience" style="font-size: 12px;">
+                <p>Convenience Fees</p>
+                <p style="margin-left: auto;">Rs.66.08</p>
+            </div>
+            <hr style="margin-top: 0px;margin-bottom: 10px;">
+            <div class="sub">
+                <p>Sub Total</p>
+                <p style="margin-left: auto;">Rs.{{subtotal}}</p>
+            </div>
+            &nbsp;
+            <div class="Contribution">
+                <div>
+                    <p>Contribution to BookASmile</p>
+                    <p>{{contribute?'(RS.1 per ticket has been added)':'(RS.1 per ticket will be added)'}}</p>
+                </div>
+                <div style="margin-left: auto;">
+                    <p>Rs.&nbsp;{{seats.length}}</p>
+                    <p style="cursor: pointer;color: #dc3558;" (click)="onContribute()">{{contribute?'Remove':'Add'}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="list-group-item" style="background-color:#fffcdc;display: flex;flex-direction: row;border-top: 0px;height: 50px;padding: 15px 20px;">
+            <p>Amount Payable</p>
+            <p style="margin-left: auto;">Rs.{{amount}}</p>
+        </div>
+        &nbsp;
+        <p style="font-size: 12px;"><i class="bi bi-exclamation-circle"></i>&nbsp;By proceeding, I express my consent to complete this transaction.</p>
+        <div class="list-group-item" style="background-color: #f84464;color: white;height: 50px;padding: 15px 20px;border-radius: 10px;cursor: pointer;" (click)="onProceed()">
+            <div class="total">
+                <p>Total: Rs.{{amount}}</p>
+                <p style="margin-left: auto;">Proceed</p>
+            </div>
+        </div>
+    </div>
+</div>

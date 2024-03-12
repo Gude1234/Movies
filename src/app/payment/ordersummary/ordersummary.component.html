@@ -1,0 +1,23 @@
+<div class="list-group-item">
+    <p style="font-size: 25px;color: #c02c39;">Order Summary</p>
+    <div class="data">
+        <div>
+            <p style="font-size: 18px;">{{movie['name']}}&nbsp; ({{movie['certification']}})</p>
+            <p>{{language}}</p>
+            <p style="font-weight: bold;">{{theatre['name']}}<p>
+            <div class="selected">
+                <p>Seats -</p>&nbsp;
+                <p *ngFor="let seat of seats;let last = last">{{seat['row']}}{{seat['seatNumber']}}{{!last?',':''}}</p>
+            </div>
+            <p>{{time}}</p>
+        </div>
+        <div style="margin-left: auto;">
+            <p style="font-size: 30px;margin-bottom: 0px;font-weight: bold;">{{seats.length}}</p>
+            <p>{{seats.length ==1?'Ticket':'Tickets'}}</p>
+        </div>
+    </div>
+</div>
+<div class="list-group-item" style="border-top: 0px;background-color:#fffcdc;display: flex;flex-direction: row;height: 50px;padding: 15px 20px;">
+    <p>Total Amount</p>
+    <p style="margin-left: auto;">Rs.{{amount}}</p>
+</div>

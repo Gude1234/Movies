@@ -1,0 +1,96 @@
+<div class="payment">
+    <div class="list-group-item" style="width: 55%;padding: 0px;">
+        <div class="header2">
+            <p style="font-size: 20px;">Contact Details</p>
+        </div>
+        <div class="contact">
+            <form #f="ngForm">
+                <div class="row">
+                    <div class="col-sm-5 form-group">
+                        <label for="email">EMail Address</label>
+                        <input id="email" type="email" [(ngModel)]="ticket.email" class="form-control" name="email" required >
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <label for="number">Phone Number</label>
+                        <input id="number" type="text" [(ngModel)]="ticket.number" class="form-control" name="number" required >
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="header2">
+            <p style="font-size: 20px;">Payment Options</p>
+        </div>
+        &nbsp;
+        <div class="options">
+            <div class="row">
+                <div class="col-sm-3">
+                    <p (click)="onCredit()" style="cursor: pointer;"><i class="bi bi-circle"></i>&nbsp; Credit/Debit Card</p>
+                    <p (click)="onUpi()" style="cursor: pointer;"><i class="bi bi-circle"></i>&nbsp; UPI</p>
+                </div>
+                <div class="col-sm-9" *ngIf="paymentOption == 'Credit'">
+                    <p style="font-size: 18px;font-weight: bold;">Enter Your Card Details</p>
+                    <form #f="ngForm">
+                        <div class="row">
+                            <div class="col-sm-7 form-group">
+                                <label for="number">Card Number</label>
+                                <input class="form-control" id="number" required name="number" ngModel minlength="16" maxlength="16">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 form-group">
+                                <label for="date">Expiry Date</label>
+                                <input class="form-control" id="date" required name="date" ngModel placeholder="mm/yy">
+                            </div>
+                            <div class="col-sm-4 form-group">
+                                <label for="cvv">CVV</label>
+                                <input class="form-control" id="cvv" required name="cvv" ngModel minlength="3" maxlength="3">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-7 form-group">
+                                <label for="name">Card Holder</label>
+                                <input class="form-control" id="name" required name="name" ngModel placeholder="Name on your card">
+                            </div>
+                        </div>
+                        <div>
+                            <button [disabled]="!f.valid">Make Payment</button>
+                            <p style="font-size: 10px;">By clicking "Make Payment" you agree to the terms and conditions</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-9"  *ngIf="paymentOption == 'UPI'">
+                    <p style="font-size: 18px;font-weight: bold;">Pay Using UPI</p>
+                    <div style="display: flex;flex-direction: row;flex-wrap: wrap;column-gap: 100px;">
+                        <div *ngFor="let option of UpiOptions;let i = index">
+                            <p (click)="onUpiOption(i)" style="cursor: pointer;width: 180px;"><i class="bi bi-circle"></i>&nbsp; <img src="{{option['image']}}" style="height: 60px;width: 60px;">&nbsp; {{option['name']}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9" *ngIf="paymentOption === 'Google Pay' || paymentOption === 'PhonePe' || paymentOption === 'Amazon Pay' || paymentOption === 'Paytm' || paymentOption === 'BHIM'">
+                    <p style="font-size: 18px;font-weight: bold;"><i class="bi bi-arrow-left-circle" (click)="onBack()" style="cursor: pointer;"></i>&nbsp; Pay using {{upiOption['name']}}</p>
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter UPI Id">
+                            </div>
+                            <div class="col-sm-1">
+                                <p>@</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" placeholder="Enter Bank">
+                            </div>
+                        </div>
+                    </form>
+                    &nbsp;
+                    <div>
+                        <button [disabled]="!f.valid" (click)="onPayment()">Make Payment</button>
+                        <p style="font-size: 10px;">By clicking "Make Payment" you agree to the terms and conditions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <app-ordersummary></app-ordersummary>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+.payment{
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+    margin-left: 10%;
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+button{
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    background-color: #f84464;
+    color: white;
+    border: 0px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+
+.options{
+    padding: 10px 20px;
+}
+
+.header2{
+    background-color: #f84464;
+    color: white;
+    height: 50px;
+    padding: 12px 20px;
+}
+
+.contact{
+    padding: 20px;
+}
+
+.UpiOption{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 100px;
+}

@@ -1,0 +1,12 @@
+<div>
+    <div class="heading">
+        <p style="font-size: 30px;">{{movie['name']}}({{language}}) - ({{movie['certification']}})</p>
+        <p>{{movie['category']}}</p>
+    </div>
+    <hr>
+</div>
+<div class="booking">
+    <div class="list-group-item">
+        <app-theatredetails *ngFor="let theatre1 of theatres" [theatre]="theatre1"></app-theatredetails>
+    </div>    
+</div>

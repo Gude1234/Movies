@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="col-sm-11">
+            <p style="font-size: 18px;">{{moviedetail['name']}}({{language}}) - ({{moviedetail['certification']}})</p>
+            <p style="font-size: 12px;font-weight: bold;">{{theatre['name']}} | {{time}}</p>
+        </div>
+        <div class="col-sm-1">
+            <p>{{selectedseats.length}}&nbsp;Tickets</p>
+            <a style="cursor: pointer; color: black;"><i class="bi bi-x-square" (click)="onClick()"></i></a>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="seatstatus">
+    <p><i class="bi bi-square" style="color:  rgb(73, 186, 142, 1);;"></i>&nbsp; Available</p>
+    <p><i class="bi bi-square-fill" style="color:  rgb(12, 139, 37);"></i>&nbsp; Selected</p>
+    <p><i class="bi bi-square-fill" style="color:  rgb(194, 197, 196);"></i>&nbsp; Sold</p>
+</div>
+<hr>
+<div class="seating">
+    <div class="totalSeating">
+        <div *ngFor="let seat of seats;let i = index">
+            <div *ngIf="i == 1 || i == 6">&nbsp;</div>
+            <div class="rowSeating">
+                <div *ngFor="let seat1 of seat; let i = index">
+                    <a class="list-group-item" [ngStyle]="{
+                        'background-color': seat1['status'] == 'Selected' ? 'rgb(12, 139, 37)' : 'white',
+                        'border-color': seat1['status'] == 'Selected' ? 'rgb(12, 139, 37)' : 'rgb(73, 186, 142, 1)',
+                        'color': seat1['status'] == 'Selected' ? 'white' : 'rgb(73, 186, 142, 1)'
+                      }" (click)="toggleSelection(seat1)">
+                        {{ seat1.row }}{{ seat1.seatNumber }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="action" *ngIf="selectedseats.length != 0">
+        <button (click)="onSubmit()">Pay Rs.{{price}}</button>
+</div>

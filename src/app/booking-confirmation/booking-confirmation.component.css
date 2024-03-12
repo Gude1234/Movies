@@ -1,0 +1,43 @@
+.confirmation{
+    display: flex;
+    justify-content: center;
+}
+.confirm{
+    display: flex;
+    flex-direction: column;
+}
+
+.list-group-item{
+    width: 425px;
+    padding: 20px;
+}
+
+.selected{
+    display: flex;
+    flex-direction: row;
+}
+
+.Convenience{
+    display: flex;
+    flex-direction: row;
+}
+
+.sub{
+    display: flex;
+    flex-direction: row;
+}
+
+.Contribution{
+    display: flex;
+    flex-direction: row;
+    padding: 16px;
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+.total{
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+}
+
