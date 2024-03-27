@@ -8,6 +8,9 @@ export class TheatredetailService {
 
   theatre:any
   time:any
+  date:Date
+  days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+  months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 
   constructor(private http:HttpClient) { }
 

@@ -1,10 +1,27 @@
-<nav class="navbar navbar-expand-lg" style="background-color:beige;">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            MyShowYourMoney
-        </a>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a>Login</a></li>
-        </ul>            
+<nav class="navbar navbar-default" style="padding: 10px;">
+    <div class="header1">
+        <div class="navbar-header">
+            <p class="navbar-brand" style="color: #f84464"><i class="bi bi-film"></i>&nbsp; <span style="color: black;">MyShowYourMoney</span></p>
+        </div>
+        <form class="navbar-form">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+                &nbsp;
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+        <button *ngIf="!user" style="width: 80px;height: 30px;color: white;background-color: #f84464;border: 0px;border-radius: 5px;margin-left: auto;" (click)="onLogin()">Sign in</button>
+        <div *ngIf="user" style="margin-left: auto;">
+            <p style="cursor: pointer;font-size: 16px;" (click)="onUser()"><i class="bi bi-person-circle"></i>&nbsp; Hi, {{user['name']}}</p>
+            <div *ngIf="showDropdown" class="content">
+                <div class="list-group-item">
+                    <p><i class="bi bi-person-circle"></i>&nbsp; My Profile</p>
+                    &nbsp;
+                    <p><i class="bi bi-ticket-perforated"></i>&nbsp; My Bookings</p>
+                    &nbsp;
+                    <p (click)="onLogout()"><i class="bi bi-box-arrow-right"></i>&nbsp; Logout</p>
+                </div>
+            </div>
+        </div>
     </div>
 </nav>

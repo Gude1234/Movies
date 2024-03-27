@@ -22,12 +22,18 @@ export class SeatingComponent implements OnInit{
   id1:number
   isSelected = false
   language:string
+  date:Date
+  days:any
+  months:any
   constructor(private seatservice:SeatingService, private theatredetail:TheatredetailService,private movieList: MovieListService, private route:ActivatedRoute, private router:Router){}
 
   ngOnInit(): void {
     this.theatre = this.theatredetail.theatre
     this.language = this.movieList.languageselected
     this.time = this.theatredetail.time
+    this.days = this.theatredetail.days
+    this.months = this.theatredetail.months
+    this.date = this.theatredetail.date
     this.route.params.subscribe((params: Params)=>{
       this.id1 = +params['id']
       this.movieList.GetMovieById(this.id1 + 1).subscribe(response =>{

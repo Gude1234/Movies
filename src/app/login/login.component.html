@@ -1,0 +1,29 @@
+<div class="backdrop"></div>
+<div class="login">
+    <div class="list-group-item">
+        <form (ngSubmit)="Authentication()" #f="ngForm">
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="email">Email</label>
+                    <input id="email" class="form-control" [(ngModel)]="user.email" name="email" required email>
+                </div>
+            </div>
+            &nbsp;
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="password">Password</label>
+                    <input id="password" class="form-control" [(ngModel)]="user.password" name="password" required minlength="8">
+                </div>
+            </div>
+            &nbsp;
+            <div>
+                <button type="submit" class="btn btn-success" [disabled]="!f.valid">Submit</button>&nbsp;
+                <button class="btn btn-danger" (click)="onCancel()">Cancel</button>
+            </div>
+            &nbsp;
+            <p>Don't have account?&nbsp;<a (click)="onRegister()" style="cursor: pointer;">Register</a></p>
+        </form>
+    </div>
+</div>
+
+

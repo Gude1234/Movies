@@ -19,6 +19,9 @@ export class OrdersummaryComponent implements OnInit{
   amount:number
   id:number
   language:string
+  date:Date
+  days:any
+  months:any
 
   constructor(private movielist:MovieListService,private confirm: ConfirmationService, private theatredetail:TheatredetailService,private seatservice:SeatingService,private route:ActivatedRoute){}
 
@@ -29,6 +32,9 @@ export class OrdersummaryComponent implements OnInit{
         this.movie = response
       })
     })
+    this.days = this.theatredetail.days
+    this.months = this.theatredetail.months
+    this.date = this.theatredetail.date
     this.amount = this.confirm.amount
     this.theatre = this.theatredetail.theatre
     this.time = this.theatredetail.time

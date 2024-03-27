@@ -22,6 +22,9 @@ export class BookingConfirmationComponent implements OnInit{
   subtotal:number
   contribute = true
   amount:number
+  date:Date
+  days:any
+  months:any
 
   constructor(private movielist:MovieListService,private confirm: ConfirmationService,private theatredeatail:TheatredetailService, private seatservce:SeatingService, private route:ActivatedRoute, private router:Router){}
 
@@ -32,6 +35,9 @@ export class BookingConfirmationComponent implements OnInit{
         this.movie = response
       })
     })
+    this.days = this.theatredeatail.days
+    this.months = this.theatredeatail.months
+    this.date = this.theatredeatail.date
     this.theatre = this.theatredeatail.theatre
     this.time = this.theatredeatail.time
     this.seats = this.seatservce.selectedSeats

@@ -1,0 +1,41 @@
+<div class="backdrop"></div>
+<div class="register">
+    <div class="list-group-item">
+        <form (ngSubmit)="CreateUser()" #f="ngForm">
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="name">Full Name</label>
+                    <input id="name" class="form-control" [(ngModel)]="user.name" name="fname" required>
+                </div>
+            </div>
+            &nbsp;
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="email">Email</label>
+                    <input id="email" class="form-control" [(ngModel)]="user.email" name="email" required email>
+                </div>
+            </div>
+            &nbsp;
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="number">Phone Number</label>
+                    <input id="number" class="form-control" [(ngModel)]="user.phoneNumber" name="number" required minlength="10" maxlength="10">
+                </div>
+            </div>
+            &nbsp;
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="password">Password</label>
+                    <input id="password" class="form-control" [(ngModel)]="user.password" name="password" required minlength="8">
+                </div>
+            </div>
+            &nbsp;
+            <div>
+                <button type="submit" class="btn btn-success" [disabled]="!f.valid">Submit</button>&nbsp;
+                <button class="btn btn-danger" (click)="onCancel()">Cancel</button>
+            </div>
+            &nbsp;
+            <p>Already have account?&nbsp;<a (click)="onLogin()" style="cursor: pointer;">Login</a></p>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+.header1{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-left: 7%;
+    margin-right: 10%;
+    align-items: center;
+}
+
+p{
+    margin: 0px;
+}
+
+.content{
+    position: absolute;
+}
+
+.list-group-item{
+    width: 150px;
+    border-radius: 10px;
+}

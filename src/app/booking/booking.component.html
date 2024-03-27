@@ -1,10 +1,23 @@
-<div>
-    <div class="heading">
-        <p style="font-size: 30px;">{{movie['name']}}({{language}}) - ({{movie['certification']}})</p>
-        <p>{{movie['category']}}</p>
-    </div>
-    <hr>
+<app-header></app-header>
+<div class="heading">
+    <p style="font-size: 30px;">{{movie['name']}}({{language}}) - ({{movie['certification']}})</p>
+    <p>{{movie['category']}}</p>
 </div>
+<hr>
+<div class="dates1">
+    <div *ngFor="let date1 of dates;let i = index">
+        <a class="list-group-item" style="cursor: pointer;margin: 1%;" [ngStyle]="{
+            'background-color': Selected === i  ? '#f84464' : 'white',
+            'border': Selected === i ? '#f84464' : '0px',
+            'color': Selected === i ? 'white' : 'black'
+          }" (click)="onSelect(i)">
+            <p style="margin-bottom: 0px;margin-bottom: 0px;font-size: 12px;">{{days[date1.getDay()]}}</p>
+            <p style="margin-bottom: 0px;margin-bottom: 0px;font-size: 16px;font-weight: bold;">{{date1.getDate()}}</p>
+            <p style="margin-bottom: 0px;margin-bottom: 0px;font-size: 12px;">{{months[date1.getMonth()]}}</p>
+        </a>
+    </div>
+</div>
+<hr>
 <div class="booking">
     <div class="list-group-item">
         <app-theatredetails *ngFor="let theatre1 of theatres" [theatre]="theatre1"></app-theatredetails>

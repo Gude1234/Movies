@@ -1,0 +1,29 @@
+.list-group-item{
+    width: 500px;
+    padding: 20px;
+}
+
+input.ng-invalid.ng-touched{
+    border-color: red;
+}
+
+.register{
+    justify-content: center;
+    display: flex;
+    position: fixed;
+    top: 20vh;
+    left: 34vw;
+    z-index: 100;
+    background: white;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 50;
+}
+

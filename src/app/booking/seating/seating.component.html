@@ -1,8 +1,9 @@
+<app-header></app-header>
 <div class="row">
     <div class="col-sm-12">
         <div class="col-sm-11">
             <p style="font-size: 18px;">{{moviedetail['name']}}({{language}}) - ({{moviedetail['certification']}})</p>
-            <p style="font-size: 12px;font-weight: bold;">{{theatre['name']}} | {{time}}</p>
+            <p style="font-size: 12px;font-weight: bold;">{{theatre['name']}} | {{days[date.getDay()]}}, {{date.getDate()}}&nbsp;{{months[date.getMonth()]}}, {{time}}</p>
         </div>
         <div class="col-sm-1">
             <p>{{selectedseats.length}}&nbsp;Tickets</p>

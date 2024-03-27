@@ -5,6 +5,7 @@ import { SeatingService } from '../Services/seating.service';
 import { TheatredetailService } from '../Services/theatredetail.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PaymentService } from '../Services/payment.service';
+import { UserService } from '../Services/user.service';
 
 @Component({
   selector: 'app-payment',
@@ -14,51 +15,45 @@ import { PaymentService } from '../Services/payment.service';
 export class PaymentComponent implements OnInit{
 
   movie:any
-  theatre:any
-  seats =[]
-  amount:number
   id:number
-  time:string
   UpiOptions = []
   paymentOption = 'Credit';
   upiOption:any
+  day:string
 
   ticket = {
     "id":0,
     "email" : "",
     "number": "",
-    "moviename": "",
+    "movieName": "",
     "language": "",
     "seats":[],
     "theatreName":"",
     "time":"",
+    "date":"",
     "amount":0
   }
 
-  constructor(private movielist:MovieListService,private confirm:ConfirmationService,private seatservice:SeatingService,private theatredeatail:TheatredetailService, private route:ActivatedRoute, private router:Router,private payment:PaymentService){}
+  constructor(private movielist:MovieListService,private confirm:ConfirmationService,private seatservice:SeatingService,private theatredeatail:TheatredetailService, private route:ActivatedRoute, private router:Router,private payment:PaymentService,private userService:UserService){}
 
   ngOnInit(): void {
     this.route.params.subscribe((params:Params) => {
       this.id = +params['id']
       this.movielist.GetMovieById(this.id+1).subscribe(response =>{
         this.movie = response
+        this.ticket.movieName = response['name']
       })
     })
-    this.theatre = this.theatredeatail.theatre
-    this.time = this.theatredeatail.time
-    this.seats = this.seatservice.selectedSeats
-    this.amount = this.confirm.amount
     for(let option of this.payment.UpiOptions){
       this.UpiOptions.push(option)
     }
-    this.ticket.moviename = this.movie['name']
-    this.ticket.language = this.movie['languages']
-    for(let seat of this.seats){
-      this.ticket.seats.push(seat['row'])
-    }
-    this.ticket.theatreName = this.theatre['name']
-    this.ticket.amount = this.amount
-    this.ticket.time = this.time
+    this.ticket.seats = this.seatservice.selectedSeats
+    this.ticket.language = this.movielist.languageselected
+    this.ticket.theatreName = this.theatredeatail.theatre['name']
+    this.ticket.amount = this.confirm.amount
+    this.ticket.time = this.theatredeatail.time
+    this.ticket.email = this.userService.loginuser['email']
+    this.ticket.number = this.userService.loginuser['phoneNumber']
   }
 
   onCredit(){
@@ -67,7 +62,7 @@ export class PaymentComponent implements OnInit{
 
   onUpi(){
     this.paymentOption = 'UPI'
-    console.log(this.ticket.seats)
+    console.log(this.ticket)
   }
 
   onUpiOption(i:number){
@@ -80,6 +75,8 @@ export class PaymentComponent implements OnInit{
   }
 
   onPayment(){
-    
+    this.payment.createBooking(this.ticket).subscribe(response =>{
+      this.router.navigate(['succesful'],{relativeTo:this.route})
+    })
   }
 }

@@ -17,6 +17,10 @@ import { PaymentComponent } from './payment/payment.component';
 import { FormsModule } from '@angular/forms';
 import { OrdersummaryComponent } from './payment/ordersummary/ordersummary.component';
 import { PopupComponent } from './shared/popup/popup.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SuccesfulComponent } from './succesful/succesful.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +36,17 @@ import { PopupComponent } from './shared/popup/popup.component';
     BookingConfirmationComponent,
     PaymentComponent,
     OrdersummaryComponent,
-    PopupComponent
+    PopupComponent,
+    LoginComponent,
+    RegisterComponent,
+    SuccesfulComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

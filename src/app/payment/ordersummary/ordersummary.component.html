@@ -9,6 +9,7 @@
                 <p>Seats -</p>&nbsp;
                 <p *ngFor="let seat of seats;let last = last">{{seat['row']}}{{seat['seatNumber']}}{{!last?',':''}}</p>
             </div>
+            <p>{{days[date.getDay()]}}, {{date.getDate()}}&nbsp;{{months[date.getMonth()]}}, {{date.getFullYear()}}</p>
             <p>{{time}}</p>
         </div>
         <div style="margin-left: auto;">

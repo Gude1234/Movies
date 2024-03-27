@@ -43,4 +43,6 @@ export class MovieDetailComponent implements OnInit{
     console.log(value)
   }
 
+  onRating(){}
+
 }

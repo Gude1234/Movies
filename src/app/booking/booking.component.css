@@ -7,3 +7,17 @@
 .heading{
     margin-left: 7%;
 }
+
+.dates1{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    width: 290px;
+    overflow-x: scroll;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.dates1::-webkit-scrollbar{
+    display: none;
+}
